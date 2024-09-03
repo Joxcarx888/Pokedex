@@ -5,7 +5,7 @@ export const BuscarPokemon = ({ handleGetPokemon }) => {
 
     return (
         <>  
-            <div className="d-flex flex-row justify-content-center alig-items-center mt-3">
+            <div className="d-flex flex-row justify-content-center align-items-center mt-3">
                 <form className="d-flex" onSubmit={(e) => handleGetPokemon(e, nombre)}>
                     <input
                         className="me-2 form-control"
@@ -16,11 +16,11 @@ export const BuscarPokemon = ({ handleGetPokemon }) => {
                     <input className="btn btn-primary" type="submit" value="buscar" />
                 </form>
             </div>
-            <div className="d-flex flex-row justify-content-center alig-items-center mt-3">
-                <h1>{nombre}</h1>
+            <div className="d-flex flex-row justify-content-center align-items-center mt-3">
             </div>
         </>
     );
-}
+};
+
 
  

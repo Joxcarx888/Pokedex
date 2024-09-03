@@ -1,23 +1,29 @@
-import { useState } from "react"
-import { reqPokemon } from "../services/pokemon"
- 
-export const usePokemon = () =>{
-    const [pokemon, setPokemon] = useState([])
-    const [nombre,setNombre] = useState("")
- 
-    const handleGetPokemon = (e, nombre) =>{
-        e.preventDefault()
+import { useState } from "react";
+import { reqPokemon } from "../services/pokemon";
 
-        const pokemon = reqPokemon(nombre);
-        setPokemon(pokemon);
+export const usePokemon = () => {
+    const [pokemon, setPokemon] = useState({}); 
+    const [nombre, setNombre] = useState(""); 
 
-        setNombre(nombre)
-    }
+    const handleGetPokemon = async (e, nombre) => {
+        e.preventDefault();
 
-    return{
+        try {
+            const actualizarPokemon = await reqPokemon(nombre); 
+            setPokemon(actualizarPokemon); 
+            setNombre(nombre); 
+
+        } catch (error) {
+            console.error("Error no se actualizo el pokemon", error);
+            
+        }
+    };
+
+    return {
         handleGetPokemon,
         pokemon,
         nombre
-    }
-}
+    };
+};
+
  
